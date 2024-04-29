@@ -1,31 +1,44 @@
+import { css } from "@emotion/react";
 import styled from "@emotion/styled";
+import React from "react";
 import { NavLink } from "react-router-dom";
 
 const CategoriesStyle = styled.div`
   display: flex;
-  justify-content: center;
-  width: 768px;
-  gap: 20px;
-  margin: 0 auto;
+  gap: 15px;
   padding: 1rem;
+  width: 768px;
+  margin: 0 auto;
   @media screen and (max-width: 768px) {
     width: 100%;
-    display: flex;
+    overflow-x: auto;
+    /* display: flex;
+    flex-wrap: wrap; */
   }
 `;
 
 const NavLinkStyle = styled(NavLink)`
   font-size: 1.125rem;
   white-space: pre;
-  padding: 0.25rem 0;
+  padding-bottom: 0.25rem;
+
   &:hover {
-    color: #333 !important;
+    color: #ababab;
   }
+
   &.active {
     font-weight: 600;
-    border-bottom: 2px solid #46b9d0;
-    color: #46b9d0;
+    border-bottom: 2px solid #22b8cf;
+    color: #22b8cf;
   }
+
+  /* ${props =>
+    props.active &&
+    css`
+      font-weight: 600;
+      border: 2px solid #22b8cf;
+      color: #22b8cf;
+    `} */
 `;
 
 const categories = [
@@ -38,7 +51,7 @@ const categories = [
   { name: "technology", text: "기술" },
 ];
 
-const Category = () => {
+const Categories = () => {
   return (
     <CategoriesStyle>
       {categories.map(category => (
@@ -50,4 +63,4 @@ const Category = () => {
   );
 };
 
-export default Category;
+export default Categories;
