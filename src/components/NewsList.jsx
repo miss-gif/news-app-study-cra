@@ -33,12 +33,12 @@ const NewsList = ({ category }) => {
         setArticles(response.data.articles);
       } catch (error) {
         console.error("Error fetching data:", error);
-        setArticles([]); // Empty array to indicate no articles
+        setArticles([]);
       }
       setLoading(false);
     };
     getData();
-  }, [category]); // Dependency added to re-run effect when category changes
+  }, [category]);
 
   if (loading) {
     return (
